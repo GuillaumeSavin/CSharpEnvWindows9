@@ -8,7 +8,25 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-
+    <Grid x:Name="GridContainer">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Rectangle Grid.Row="0" x:Name="rectBlue" Fill="Blue" DoubleTapped="rectBlue_DoubleTapped"  Height="200" Width="400" Opacity="0.1"/>
+        <Grid.Resources>
+            <Storyboard x:Name="blueStoryboard">
+                <DoubleAnimation
+                    Storyboard.TargetName="rectBlue"
+                    Storyboard.TargetProperty="Opacity"
+                    From="0.1" To="1.0" Duration="0:0:1"
+                    AutoReverse="True"
+                />
+            </Storyboard>
+        </Grid.Resources>
     </Grid>
 </Page>
